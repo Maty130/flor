@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Flor Amarilla para Antonia</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fff8dc, #ffeaa7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .flor {
+      width: 400px;
+      height: auto;
+      transition: transform 0.8s ease;
+      animation: flotar 3s ease-in-out infinite;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .flor.abierta {
+      transform: scale(1.8);
+    }
+
+    .nombre {
+      margin-top: 30px;
+      font-size: 3em;
+      color: #f39c12;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .mensaje {
+      margin-top: 15px;
+      font-size: 2.5em;
+      color: #e84393;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .mensaje.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Imagen de flor amarilla que sí funciona -->
+  <img class="flor" src="https://images.unsplash.com/photo-1508973371453-68b29c9935b4?auto=format&fit=crop&w=800&q=80" alt="Flor Amarilla" id="flor">
+  
+  <div class="nombre">Antonia</div>
+  <div class="mensaje" id="mensaje">Te amo 🌸</div>
+
+  <script>
+    const flor = document.getElementById("flor");
+    const mensaje = document.getElementById("mensaje");
+
+    flor.addEventListener("click", () => {
+      flor.classList.toggle("abierta");
+      mensaje.classList.toggle("visible");
+    });
+  </script>
+
+</body>
+</html>
